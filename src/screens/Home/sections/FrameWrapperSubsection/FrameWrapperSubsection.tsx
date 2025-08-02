@@ -1,11 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "../../../../components/ui/card";
 
 export const FrameWrapperSubsection = (): JSX.Element => {
+  const navigate = useNavigate();
+
+  const handleOffersClick = () => {
+    navigate("/offers");
+  };
+
   const navigationItems = [
     {
       name: "Home",
       isActive: true,
+      onClick: () => navigate("/"),
       icon: (
         <div className="relative w-[23px] h-[27px]">
           <img
@@ -24,6 +32,7 @@ export const FrameWrapperSubsection = (): JSX.Element => {
     {
       name: "Offers",
       isActive: false,
+      onClick: handleOffersClick,
       icon: (
         <img
           className="w-[29px] h-[29px]"
@@ -35,6 +44,7 @@ export const FrameWrapperSubsection = (): JSX.Element => {
     {
       name: "Orders",
       isActive: false,
+      onClick: () => {},
       icon: (
         <div className="relative w-7 h-[26px]">
           <img
@@ -63,6 +73,7 @@ export const FrameWrapperSubsection = (): JSX.Element => {
     {
       name: "Favourites",
       isActive: false,
+      onClick: () => {},
       icon: (
         <div className="w-[26px] h-6 bg-[url(/vector-8.svg)] bg-[100%_100%]" />
       ),
@@ -70,6 +81,7 @@ export const FrameWrapperSubsection = (): JSX.Element => {
     {
       name: "Profiles",
       isActive: false,
+      onClick: () => {},
       icon: (
         <div className="relative w-[29px] h-[27px]">
           <img
@@ -95,7 +107,8 @@ export const FrameWrapperSubsection = (): JSX.Element => {
             {navigationItems.map((item, index) => (
               <li
                 key={index}
-                className="flex flex-col items-center justify-center space-y-1"
+                className="flex flex-col items-center justify-center space-y-1 cursor-pointer"
+                onClick={item.onClick}
               >
                 <div className="flex justify-center items-center h-7">
                   {item.icon}
