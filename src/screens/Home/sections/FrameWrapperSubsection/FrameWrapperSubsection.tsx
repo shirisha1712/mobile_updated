@@ -5,7 +5,7 @@ import { Card, CardContent } from "../../../../components/ui/card";
 export const FrameWrapperSubsection = (): JSX.Element => {
   const navigate = useNavigate();
 
-  const handleOffersClick = () => {
+  const handleOrdersClick = () => {
     navigate("/offers");
   };
 
@@ -32,7 +32,7 @@ export const FrameWrapperSubsection = (): JSX.Element => {
     {
       name: "Offers",
       isActive: false,
-      onClick: handleOffersClick,
+      onClick: () => {},
       icon: (
         <img
           className="w-[29px] h-[29px]"
@@ -44,7 +44,7 @@ export const FrameWrapperSubsection = (): JSX.Element => {
     {
       name: "Orders",
       isActive: false,
-      onClick: () => {},
+      onClick: handleOrdersClick,
       icon: (
         <div className="relative w-7 h-[26px]">
           <img
